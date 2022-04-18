@@ -23,7 +23,7 @@ public class UserController {
         userService = theUserService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public Iterable<User> getUsers() {
         return userService.findAll();
     }

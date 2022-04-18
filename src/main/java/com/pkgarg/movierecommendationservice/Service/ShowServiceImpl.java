@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ShowServiceImpl implements IShowService {
@@ -51,6 +52,18 @@ public class ShowServiceImpl implements IShowService {
             }
         }
         return "No shows found";
+    }
+
+    @Override
+    public Optional<?> deleteAllRecommendations(String userId){
+        Optional<User> user = userRepository.findById(userId);
+        if (user.isPresent()){
+            user.get().setShowList(new ArrayList<>());
+            userRepository.save(user.get());
+            return user;
+        } else {
+            return Optional.of("user not found");
+        }
     }
 
 

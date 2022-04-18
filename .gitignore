@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+.git.bfg-report/
+bfg-1.14.0.jar
+.mvn/
+mvnw
+mvnw.cmd
